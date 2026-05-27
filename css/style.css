@@ -1,0 +1,19 @@
+body{
+    background-color:black;
+    color: red;
+}
+
+.film{
+    margin: 20px;
+    /*flex:1 1 200px;*/
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.film:hover {
+    transform: scale(1.3); 
+}
+
+.pr{
+    padding: 10px;
+}
