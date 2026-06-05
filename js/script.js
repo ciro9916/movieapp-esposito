@@ -19,9 +19,9 @@
         filmDiv.appendChild(divv);
     }
   });
-
 */
 
+/*
 
 const chiamataApi =async () =>{
     const risposta = await fetch("movies.json")
@@ -31,9 +31,12 @@ const chiamataApi =async () =>{
     const dati = await risposta.json()
      return dati
 }
+
+
 const stampaFilm = async () =>{
     const movies=await chiamataApi()
     const filmDiv = document.getElementById("film");
+    
     for (let i = 0; i < movies.length-3; i++) {
       const divv=document.createElement("div")  
       const link=document.createElement("a")
@@ -52,3 +55,5 @@ const stampaFilm = async () =>{
 }
 
 stampaFilm()
+
+*/

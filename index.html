@@ -5,24 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
     <header style="display: flex; justify-content: space-between; padding: 25  25 25 50;border-bottom: 2px solid white;">
         <img src="img/logo.jpg" style="height: 70px;">
         <div style="display: flex; flex-direction: row-reverse; padding-right: 10px;">
-            <p style="font-size: 18px;">🎬<a href="#">MOVIES</a> 📽️<a href="#">SERIE</a> 👤<a href="#">PROFILO</a></p>
+            <p style="font-size: 18px;">🎬<a href="film.html">MOVIES</a> 📽️<a href="serie.html">SERIE</a> 👤<a href="profile.html">PROFILO</a></p>
         </div>
     </header>
-    <div style="margin: auto; width: 80%;">
-        <h1 style="margin-top:30px;">I film del momento: </h1>
-        <div id="film" style="display:flex; flex-wrap: wrap; justify-content: start;">
-
-        </div>
-
+   <div style="margin: auto; padding-left: 20px; overflow: visible;">
+    <h1 style="margin-top:30px;">I film del momento: </h1>
+    <div id="film" style="display:flex; gap: 20px; flex-wrap: nowrap; overflow-x: auto; overflow-y: visible; padding: 20px;">
+    
     </div>
+
+    <h1 style="margin-top:30px;">Le serie del momento: </h1>
+    <div id="serie" style="display:flex; gap: 20px; flex-wrap: nowrap; overflow-x: auto; overflow-y: visible; padding: 20px;">
+    
+    </div>
+</div>
     
     
-    <script src="js/script.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
  

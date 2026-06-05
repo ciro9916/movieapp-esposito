@@ -1,4 +1,4 @@
-const params = new URLSearchParams(window.location.search)
+/*const params = new URLSearchParams(window.location.search)
 const id = params.get("id")
 
 fetch('../movies.json')
@@ -32,4 +32,4 @@ fetch('../movies.json')
             }
             
         }
-  });
+  });*/

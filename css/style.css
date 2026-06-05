@@ -4,16 +4,48 @@ body{
 }
 
 .film{
-    margin: 20px;
-    /*flex:1 1 200px;*/
-    border: 2px solid white;
-    border-radius: 5px;
+    width: auto;    
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    border-radius: 10px;
+     border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.15); /* ← bordo */
+    overflow: hidden; /* ← importante per far rispettare il border-radius all'img */
+    margin-bottom: 12px;
 }
 
-.film:hover {
-    transform: scale(1.3); 
+.scheda{
+    border-radius: 10px;
+
 }
 
 .pr{
     padding: 10px;
+}
+
+.schedaINT {
+    background-color: rgb(30, 28, 28);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;          /* prende lo spazio rimanente */
+    padding-left: 20px;
+    min-width: 0;     /* evita overflow */
+}
+
+#film {
+    overflow-x: auto;
+    scrollbar-width: none; 
+}
+
+
+#serie {
+    overflow-x: auto;
+    scrollbar-width: none; 
+}
+/*Se la scheda non è stata aperta, puoi allargare*/
+.film:not(.aperta):hover {
+    transform: scale(1.1);
+    transform-origin: bottom center;
 }
