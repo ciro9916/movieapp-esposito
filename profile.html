@@ -1,17 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profilo</title>
+  <style>
+    body { margin: 0; background: #111; color: #f0f0f0; font-family: system-ui, sans-serif; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 25px 25px 25px 50px; border-bottom: 2px solid white; }
+    header a { color: white; text-decoration: none; margin-left: 16px; font-size: 18px; }
+    header a:hover { color: #cc0000; }
+    main { max-width: 600px; margin: 60px auto; padding: 0 24px; }
+    h1 { font-size: 28px; margin-bottom: 6px; }
+    .sub { color: #888; font-size: 14px; margin-bottom: 32px; }
+    p { line-height: 1.7; color: #ccc; margin-bottom: 32px; }
+    .gh { display: flex; align-items: center; gap: 12px; border: 1px solid #333; border-radius: 10px; padding: 14px 20px; text-decoration: none; color: white; }
+    .gh:hover { border-color: #cc0000; }
+    .gh span { color: #888; font-size: 13px; }
+  </style>
 </head>
 <body>
-    <header style="display: flex; justify-content: space-between; padding: 25  25 25 50;border-bottom: 2px solid white;">
-        <img src="img/logo.jpg" style="height: 70px;">
-        <div style="display: flex; flex-direction: row-reverse; padding-right: 10px;">
-            <p style="font-size: 18px;">🎬<a href="film.html">MOVIES</a> 📽️<a href="serie.html">SERIE</a> 👤<a href="profile.html">PROFILO</a></p>
-        </div>
-    </header>
+
+  <header>
+    <img src="img/logo.jpg" style="height: 70px;">
+    <div>
+      <a href="film.html">🎬 MOVIES</a>
+      <a href="serie.html">📽️ SERIE</a>
+      <a href="profile.html">👤 PROFILO</a>
+    </div>
+  </header>
+
+  <main>
+    <h1>Gruppo 42</h1>
+    <p class="sub">Progetto Web — A.A. 2024/2025</p>
+
+    <p>Applicazione web per navigare il catalogo cinematografico tramite le API di <strong>TMDB</strong>. Permette di cercare film, vedere dettagli, cast e valutazioni.</p>
+
+    <a href="https://github.com/tuousername/tuorepo" target="_blank" class="gh">
+      <span style="font-size:24px;">🔗</span>
+      <div>
+        <strong>Repository GitHub</strong><br>
+        <span>github.com/cito9916/movieapp-esposito</span>
+      </div>
+    </a>
+  </main>
+
 </body>
 </html>
