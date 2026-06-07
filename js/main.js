@@ -40,18 +40,20 @@ const stampaFilm = async () => {
     divEsterno.classList.add("film");
     divEsterno.style.minWidth = "180px";
 
-    divEsterno.addEventListener("click", () => {
-    if (divFilm.style.display === "none") {
+    
+   // 1. Quando il mouse ENTRA nella card
+    divEsterno.addEventListener("mouseenter", () => {
         divEsterno.style.minWidth = "450px";
         divFilm.style.display = "flex";
         divEsterno.classList.add("aperta");
-    } else {
+    }); 
+
+    // 2. Quando il mouse ESCE dalla card
+    divEsterno.addEventListener("mouseleave", () => {
         divEsterno.style.minWidth = "180px";
         divFilm.style.display = "none";
         divEsterno.classList.remove("aperta");
-    }
-   });
-
+    });
     filmDiv.appendChild(divEsterno);
 }
 };

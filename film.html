@@ -7,18 +7,40 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header style="display: flex; justify-content: space-between; padding: 25  25 25 50;border-bottom: 2px solid white;">
-        <img src="img/logo.jpg" style="height: 70px;">
-        <div style="display: flex; flex-direction: row-reverse; padding-right: 10px;">
-            <p style="font-size: 18px;">🎬<a href="film.html">MOVIES</a> 📽️<a href="serie.html">SERIE</a> 👤<a href="profile.html">PROFILO</a></p>
-        </div>
-    </header>
-    
+     <header class="topbar">
+        <img src="img/logo.jpg" style="height: 60px; border-radius: 8px;">
+        <nav style="display: flex; gap: 28px;">
+            <a href="index.html" class="topbar-link">🔥 TRENDING</a>
+            <a href="film.html" class="topbar-link">🎬 MOVIES</a>
+            <a href="serie.html" class="topbar-link">📽️ SERIE</a>
+            <a href="profile.html" class="topbar-link">👤 PROFILO</a>
+        </nav>
+    </header>    
 
     <div id="film" style="display: flex; flex-wrap: wrap;padding: 25px; gap: 20px;justify-content: start;">
 
     </div>
+    <footer style="background: #111; border-top: 2px solid #cc0000; padding: 40px 20px; text-align: center; font-family: system-ui; color: #ccc;">
 
+            <p style="font-size: 20px; font-weight: bold; color: white; margin-bottom: 20px;">🎬 CineApp</p>
+
+            <div style="margin-bottom: 20px;">
+                <a href="index.html" style="color: #ccc; text-decoration: none; margin: 0 12px;">Trending</a>
+                <a href="film.html" style="color: #ccc; text-decoration: none; margin: 0 12px;">Movies</a>
+                <a href="serie.html" style="color: #ccc; text-decoration: none; margin: 0 12px;">Serie</a>
+                <a href="profile.html" style="color: #ccc; text-decoration: none; margin: 0 12px;">Profilo</a>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <a href="https://www.facebook.com/AndreaEsposito06" style="color: white; margin: 0 8px; font-size: 18px;"><i class="fab fa-facebook-f"></i></a>
+                <a href="#!" style="color: white; margin: 0 8px; font-size: 18px;"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/andrea-esposito-33b169297/" style="color: white; margin: 0 8px; font-size: 18px;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#!" style="color: white; margin: 0 8px; font-size: 18px;"><i class="fab fa-github"></i></a>
+            </div>
+
+            <p style="font-size: 13px; color: #555; margin: 0;">© 2025 CineApp · Progetto scolastico · Dati forniti da TMDB</p>
+
+        </footer>
     
 <script src="js/api.js"></script>
 <script src="js/movies.js"></script>
