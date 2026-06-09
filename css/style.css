@@ -1,56 +1,8 @@
-body{
-    background-color:black !important;
-    color: red !important;
-}
-
-.film{
-    width: auto;    
-    display: flex;
-    flex-direction: row;
-    gap: 0px;
-    border-radius: 10px;
-     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.15); /* ← bordo */
-    overflow: hidden; /* ← importante per far rispettare il border-radius all'img */
-    margin-bottom: 12px;
-}
-
-.scheda{
-    border-radius: 10px;
-
-}
-
-.pr{
-    padding: 10px;
-}
-
-.schedaINT {
-    background-color: rgb(30, 28, 28);
+body {
+    background-color: #111;
     color: white;
-    display: flex;
-    flex-direction: column;
-    flex: 1;          /* prende lo spazio rimanente */
-    padding-left: 20px;
-    min-width: 0;     /* evita overflow */
+    font-family: system-ui, sans-serif;
 }
-
-#film {
-    overflow-x: auto;
-    scrollbar-width: none; 
-}
-
-
-#serie {
-    overflow-x: auto;
-    scrollbar-width: none; 
-}
-/*Se la scheda non è stata aperta, puoi allargare
-.film:not(.aperta):hover {
-    transform: scale(1.1);
-    transform-origin: bottom center;
-}
-*/
-
 
 .topbar {
     display: flex;
@@ -68,12 +20,109 @@ body{
     color: white;
     text-decoration: none;
     font-size: 16px;
-    font-family: system-ui;
 }
 
 .topbar-link:hover {
-    color:black;
     background-color: #cc0000;
-    border-radius: 5%;
+    color: black;
+    border-radius: 4px;
+    padding: 4px 8px;
 }
 
+#film, #serie {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: none;
+    padding: 60px 20px;
+    padding-right: 180px;
+    
+}
+
+.film {
+    position: relative;
+    flex-shrink: 0;
+    width: 180px;
+    height: 270px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center center;
+    z-index: 1;
+    overflow: visible;
+}
+
+.film:hover {
+    transform: scale(1.4);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.9);
+    z-index: 999;
+}
+
+.film img {
+    width: 180px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+    display: block;
+}
+
+
+.schedaINT {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 180px;
+    max-width: 300px;
+    min-width: 150px;
+    height: 270px;
+    background: #1e1e1e;
+    border-radius: 0 10px 10px 0;
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 30;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.film:hover .schedaINT {
+    display: flex;
+}
+
+.film-titolo {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.film-voto {
+    font-size: 14px;
+    color: #ffaa00;
+    margin: 0;
+}
+
+.film-overview {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.5;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.schedaINT::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.film-titolo,
+.film-voto,
+.film-lingua,
+.film-data,
+.film-overview {
+    margin: 5px;
+}

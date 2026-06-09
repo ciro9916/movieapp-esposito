@@ -1,4 +1,4 @@
-const stampaSerie = async () => {
+/*const stampaSerie = async () => {
     const series = await fetchFromTMDB('/tv/popular');
     const serieDiv = document.getElementById("serie");
 
@@ -51,5 +51,70 @@ const stampaSerie = async () => {
         serieDiv.appendChild(divEsterno);
     }
 };
+*/
 
-stampaSerie();
+
+
+const stampaSerieTv = async () => {
+    const data = await fetchFromTMDB('/tv/popular');
+    if (!data) return;
+
+    const serie = data; 
+    const serieDiv = document.getElementById("serie"); 
+
+    for (let i = 0; i < serie.length; i++) {
+        const divEsterno = document.createElement("div");
+        divEsterno.classList.add("film");
+
+        const img = document.createElement("img");
+        img.src = "https://image.tmdb.org/t/p/w500" + serie[i].poster_path;
+
+        const divFilm = document.createElement("div");
+        divFilm.classList.add("schedaINT");
+
+        const titolo = document.createElement("p");
+        // Corretto: per le serie TV si usa .name
+        titolo.innerText = serie[i].name; 
+        titolo.classList.add("film-titolo");
+
+        const voto = document.createElement("p");
+        voto.innerText = "⭐ " + serie[i].vote_average.toFixed(1);
+        voto.classList.add("film-voto");
+
+        const lingua = document.createElement("p");
+        lingua.innerText = "🌐 " + serie[i].original_language.toUpperCase();
+        lingua.classList.add("film-lingua");
+
+        const dataUscita = document.createElement("p");
+        // Corretto: per le serie TV si usa .first_air_date
+        dataUscita.innerText = "📅 " + serie[i].first_air_date; 
+        dataUscita.classList.add("film-data");
+
+        const overview = document.createElement("p");
+        overview.innerText = serie[i].overview;
+        overview.classList.add("film-overview");
+        const righe = serie[i].overview.length < 30 ? 3 : 6;
+        overview.style.webkitLineClamp = righe;
+
+        divFilm.appendChild(titolo);
+        divFilm.appendChild(voto);
+        divFilm.appendChild(lingua);
+        divFilm.appendChild(dataUscita);
+        divFilm.appendChild(overview);
+
+        divEsterno.appendChild(img);
+        divEsterno.appendChild(divFilm);
+        divEsterno.addEventListener("mouseenter", () => {
+            divFilm.style.display = "flex";
+        });
+
+        divEsterno.addEventListener("mouseleave", () => {
+            divFilm.style.display = "none";
+        });
+
+        serieDiv.appendChild(divEsterno); 
+    }
+};
+
+stampaSerieTv();
+
