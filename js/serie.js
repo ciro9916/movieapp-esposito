@@ -55,7 +55,7 @@
 
 
 
-const stampaSerieTv = async () => {
+const stampaSerieTvPopolare = async () => {
     const data = await fetchFromTMDB('/tv/popular');
     if (!data) return;
 
@@ -104,7 +104,7 @@ const stampaSerieTv = async () => {
 
         divEsterno.appendChild(img);
         divEsterno.appendChild(divFilm);
-        divEsterno.addEventListener("mouseenter", () => {
+         divEsterno.addEventListener("mouseenter", () => {
             divFilm.style.display = "flex";
         });
 
@@ -112,9 +112,20 @@ const stampaSerieTv = async () => {
             divFilm.style.display = "none";
         });
 
+        // solo mobile
+        divEsterno.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            if (divFilm.style.display === "flex") {
+                divFilm.style.display = "none";
+            } else {
+                document.querySelectorAll(".schedaINT").forEach(s => s.style.display = "none");
+                divFilm.style.display = "flex";
+            }
+        });
+
         serieDiv.appendChild(divEsterno); 
     }
 };
 
-stampaSerieTv();
+stampaSerieTvPopolare();
 

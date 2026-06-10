@@ -1,4 +1,4 @@
-const stampaFilm = async () => {
+const stampaFilmPopolare = async () => {
     const data = await fetchFromTMDB('/movie/popular');
     if (!data) return;
 
@@ -60,4 +60,4 @@ const stampaFilm = async () => {
 };
 
 
-stampaFilm();
+stampaFilmPopolare();

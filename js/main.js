@@ -1,4 +1,4 @@
-const stampaFilm = async () => {
+const stampaFilmDelMomento = async () => {
     const data = await fetchFromTMDB('/trending/movie/week');
     if (!data) return;
 
@@ -118,7 +118,7 @@ const stampaSerieTv = async () => {
 };*/
 
 
-const stampaSerieTv = async () => {
+const stampaSerieTvDelMomento = async () => {
     const data = await fetchFromTMDB('/trending/tv/week');
     if (!data) return;
 
@@ -180,7 +180,7 @@ const stampaSerieTv = async () => {
 };
 
 
-stampaFilm();
-stampaSerieTv();
+stampaFilmDelMomento();
+stampaSerieTvDelMomento();
 
 
