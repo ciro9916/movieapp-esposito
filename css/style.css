@@ -1,9 +1,10 @@
+/* CSS*/
 body {
     background-color: #111;
     color: white;
     font-family: system-ui, sans-serif;
 }
-
+/*Dettagli per l'header*/
 .topbar {
     display: flex;
     justify-content: space-between;
@@ -29,6 +30,7 @@ body {
     padding: 4px 8px;
 }
 
+/* Dettagli disposizione di tutti film/serie tv*/
 #film, #serie {
     display: flex;
     gap: 20px;
@@ -40,7 +42,7 @@ body {
     padding-right: 180px;
     
 }
-
+/* Dettagli singoli film*/
 .film {
     position: relative;
     flex-shrink: 0;
@@ -125,4 +127,86 @@ body {
 .film-data,
 .film-overview {
     margin: 5px;
+}
+
+/* dettagli riguardo al bottone per i dettagli*/
+.btn-dettagli {
+    background-color: #cc0000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-dettagli:hover {
+    background-color: #a00000;
+    transform: scale(1.05);
+}
+/*Dati per la pagina dettagli*/
+
+.elemento-backdrop {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 40px;
+    padding: 40px;
+    background: #111;
+    min-height: 60vh;
+}
+
+.det-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 700px;
+    justify-content: space-between; 
+}
+.det-poster {
+    width: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+
+.det-titolo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.det-overview {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.det-meta-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.det-meta-row {
+    display: flex;
+    gap: 20px;
+    font-size: 0.95rem;
+    color: #ccc;
+    border-bottom: 1px solid #222;
+    padding-bottom: 8px;
+}
+
+.det-label {
+    color: #888;
+    min-width: 80px;
+    font-weight: 600;
 }

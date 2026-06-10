@@ -1,5 +1,6 @@
 const stampaFilmPopolare = async () => {
-    const data = await fetchFromTMDB('/movie/popular');
+    const endpoint = '/movie/popular';
+    const data = await fetchFromTMDB(endpoint);
     if (!data) return;
 
     const movies = data;
@@ -10,7 +11,7 @@ const stampaFilmPopolare = async () => {
         divEsterno.classList.add("film");
 
         const img = document.createElement("img");
-        img.src = "https://image.tmdb.org/t/p/w500" + movies[i].poster_path;
+        img.src = BASE_URL_IMG + movies[i].poster_path;
 
         const divFilm = document.createElement("div");
         divFilm.classList.add("schedaINT");
@@ -30,6 +31,14 @@ const stampaFilmPopolare = async () => {
         const dataUscita = document.createElement("p");
         dataUscita.innerText = "📅 " + movies[i].release_date;
         dataUscita.classList.add("film-data");
+        
+        const btnDettagli = document.createElement("button");
+        btnDettagli.innerText = "Dettagli";
+        btnDettagli.classList.add("btn-dettagli");
+        btnDettagli.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            window.location.href = `dettagli.html?id=${movies[i].id}&endpoint=${encodeURIComponent(endpoint)}`;
+        });
 
         const overview = document.createElement("p");
         overview.innerText = movies[i].overview;
@@ -42,6 +51,7 @@ const stampaFilmPopolare = async () => {
         divFilm.appendChild(voto);
         divFilm.appendChild(lingua);
         divFilm.appendChild(dataUscita);
+        divFilm.appendChild(btnDettagli);
         divFilm.appendChild(overview);
 
         divEsterno.appendChild(img);
@@ -53,6 +63,17 @@ const stampaFilmPopolare = async () => {
 
         divEsterno.addEventListener("mouseleave", () => {
             divFilm.style.display = "none";
+        });
+
+        // solo mobile
+        divEsterno.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            if (divFilm.style.display === "flex") {
+                divFilm.style.display = "none";
+            } else {
+                document.querySelectorAll(".schedaINT").forEach(s => s.style.display = "none");
+                divFilm.style.display = "flex";
+            }
         });
 
         filmDiv.appendChild(divEsterno);

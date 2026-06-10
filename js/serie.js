@@ -56,7 +56,8 @@
 
 
 const stampaSerieTvPopolare = async () => {
-    const data = await fetchFromTMDB('/tv/popular');
+    const endpoint = '/tv/popular';
+    const data = await fetchFromTMDB(endpoint);
     if (!data) return;
 
     const serie = data; 
@@ -67,7 +68,7 @@ const stampaSerieTvPopolare = async () => {
         divEsterno.classList.add("film");
 
         const img = document.createElement("img");
-        img.src = "https://image.tmdb.org/t/p/w500" + serie[i].poster_path;
+        img.src = BASE_URL_IMG + serie[i].poster_path;
 
         const divFilm = document.createElement("div");
         divFilm.classList.add("schedaINT");
@@ -86,9 +87,16 @@ const stampaSerieTvPopolare = async () => {
         lingua.classList.add("film-lingua");
 
         const dataUscita = document.createElement("p");
-        // Corretto: per le serie TV si usa .first_air_date
         dataUscita.innerText = "📅 " + serie[i].first_air_date; 
         dataUscita.classList.add("film-data");
+
+        const btnDettagli = document.createElement("button");
+        btnDettagli.innerText = "Dettagli";
+        btnDettagli.classList.add("btn-dettagli");
+        btnDettagli.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            window.location.href = `dettagli.html?id=${serie[i].id}&endpoint=${encodeURIComponent(endpoint)}`;
+        });
 
         const overview = document.createElement("p");
         overview.innerText = serie[i].overview;
@@ -100,8 +108,10 @@ const stampaSerieTvPopolare = async () => {
         divFilm.appendChild(voto);
         divFilm.appendChild(lingua);
         divFilm.appendChild(dataUscita);
+        
+        divFilm.appendChild(btnDettagli);
         divFilm.appendChild(overview);
-
+       
         divEsterno.appendChild(img);
         divEsterno.appendChild(divFilm);
          divEsterno.addEventListener("mouseenter", () => {
@@ -122,7 +132,7 @@ const stampaSerieTvPopolare = async () => {
                 divFilm.style.display = "flex";
             }
         });
-
+       
         serieDiv.appendChild(divEsterno); 
     }
 };

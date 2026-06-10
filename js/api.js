@@ -1,4 +1,5 @@
 const BASE_URL = 'https://api.themoviedb.org/3';
+const BASE_URL_IMG= 'https://image.tmdb.org/t/p/w500';
 
 async function fetchFromTMDB(endpoint) {
   try {
@@ -8,6 +9,7 @@ async function fetchFromTMDB(endpoint) {
     return data.results;
   } catch (error) {
     console.error('Fetch fallita:', error);
+    alert("Risorsa non trovata")
     return [];
   }
 }
