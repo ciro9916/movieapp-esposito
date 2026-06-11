@@ -1,18 +1,24 @@
 const stampaFilmDelMomento = async () => {
     const endpoint = '/trending/movie/week'
+    // chiamata alla funzione per fare chiamate api, funzione inserita nel file api.js
     const data = await fetchFromTMDB(endpoint);
+    // se non ci sono dati non restituire niente
     if (!data) return;
 
     const movies = data;
+    // prende il div film dall'html
     const filmDiv = document.getElementById("film");
 
+    // cicla tutti i film
     for (let i = 0; i < movies.length; i++) {
+        // crea un div esterno in cui metteremo tutto
         const divEsterno = document.createElement("div");
         divEsterno.classList.add("film");
 
         const img = document.createElement("img");
         img.src = BASE_URL_IMG + movies[i].poster_path;
 
+        // crea ora il div per la card
         const divFilm = document.createElement("div");
         divFilm.classList.add("schedaINT");
 
@@ -32,6 +38,7 @@ const stampaFilmDelMomento = async () => {
         dataUscita.innerText = "📅 " + movies[i].release_date;
         dataUscita.classList.add("film-data");
         
+        // crea un bottone per portarmi alla pagina dei dettagli
         const btnDettagli = document.createElement("button");
         btnDettagli.innerText = "Dettagli";
         btnDettagli.classList.add("btn-dettagli");
@@ -45,7 +52,8 @@ const stampaFilmDelMomento = async () => {
         overview.classList.add("film-overview");
         const righe = movies[i].overview.length < 30 ? 3 : 6;
         overview.style.webkitLineClamp = righe;
-
+        
+        // nel div della card mette tutto
         divFilm.appendChild(titolo);
         divFilm.appendChild(voto);
         divFilm.appendChild(lingua);
@@ -55,11 +63,11 @@ const stampaFilmDelMomento = async () => {
 
         divEsterno.appendChild(img);
         divEsterno.appendChild(divFilm);
-
+        // qui se sono sull'immagine con il mouse mi mostra la scheda
         divEsterno.addEventListener("mouseenter", () => {
             divFilm.style.display = "flex";
         });
-
+        // qui invece se ci esco torna normale
         divEsterno.addEventListener("mouseleave", () => {
             divFilm.style.display = "none";
         });
@@ -79,80 +87,28 @@ const stampaFilmDelMomento = async () => {
 };
 
 
-/*
-const stampaSerieTv = async () => {
-    const data = await fetchFromTMDB('/trending/tv/week');
-    
-    if (!data) return; 
-    const series = data; 
-    const filmDiv = document.getElementById("serie");
-
-   for (let i = 0; i < series.length; i++) {
-    const divEsterno = document.createElement("div");
-    const divFilm = document.createElement("div");
-
-    const img = document.createElement("img");
-    img.src = "https://image.tmdb.org/t/p/w500" + series[i].poster_path;
-    img.style.width = "180px";
-    img.style.height = "100%";
-    img.style.objectFit = "cover";
-
-    const titolo = document.createElement("p");
-    titolo.innerText = "Titolo : " + series[i].title;
-
-    const voto = document.createElement("p");
-    voto.innerText = "Voto : " + series[i].vote_average + "⭐";
-
-    const lingua = document.createElement("p");
-    lingua.innerText = "Lingua : " + series[i].original_language;
-
-    const data = document.createElement("p");
-    data.innerText = "Data di rilascio : " + series[i].release_date;
-
-    divFilm.appendChild(titolo);
-    divFilm.appendChild(voto);
-    divFilm.appendChild(lingua);
-    divFilm.appendChild(data);
-    divFilm.classList.add("schedaINT");
-    divFilm.style.display = "none";
-
-    divEsterno.appendChild(img);
-    divEsterno.appendChild(divFilm);
-    divEsterno.classList.add("film");
-    divEsterno.style.minWidth = "180px";
-
-    divEsterno.addEventListener("click", () => {
-    if (divFilm.style.display === "none") {
-        divEsterno.style.minWidth = "450px";
-        divFilm.style.display = "flex";
-        divEsterno.classList.add("aperta");
-    } else {
-        divEsterno.style.minWidth = "180px";
-        divFilm.style.display = "none";
-        divEsterno.classList.remove("aperta");
-    }
-   });
-
-    filmDiv.appendChild(divEsterno);
-}
-};*/
-
 
 const stampaSerieTvDelMomento = async () => {
     const endpoint = '/trending/tv/week';
+    // chiamata alla funzione per fare chiamate api, funzione inserita nel file api.js
     const data = await fetchFromTMDB(endpoint);
+    // se non ci sono dati non restituire niente
     if (!data) return;
 
     const serie = data; 
+    // prende il div serie dall'html
     const serieDiv = document.getElementById("serie"); 
 
+    // cicla tutte le serie
     for (let i = 0; i < serie.length; i++) {
+        // crea un div esterno in cui metteremo tutto
         const divEsterno = document.createElement("div");
         divEsterno.classList.add("film");
 
         const img = document.createElement("img");
         img.src = BASE_URL_IMG + serie[i].poster_path;
 
+        // crea ora il div per la card
         const divFilm = document.createElement("div");
         divFilm.classList.add("schedaINT");
 
@@ -173,6 +129,7 @@ const stampaSerieTvDelMomento = async () => {
         dataUscita.innerText = "📅 " + serie[i].first_air_date; 
         dataUscita.classList.add("film-data");
 
+        // crea un bottone per portarmi alla pagina dei dettagli
         const btnDettagli = document.createElement("button");
         btnDettagli.innerText = "Dettagli";
         btnDettagli.classList.add("btn-dettagli");
@@ -187,6 +144,7 @@ const stampaSerieTvDelMomento = async () => {
         const righe = serie[i].overview.length < 30 ? 3 : 6;
         overview.style.webkitLineClamp = righe;
 
+        // nel div della card mette tutto
         divFilm.appendChild(titolo);
         divFilm.appendChild(voto);
         divFilm.appendChild(lingua);
@@ -196,16 +154,15 @@ const stampaSerieTvDelMomento = async () => {
 
         divEsterno.appendChild(img);
         divEsterno.appendChild(divFilm);
-
+        // qui se sono sull'immagine con il mouse mi mostra la scheda
         divEsterno.addEventListener("mouseenter", () => {
             divFilm.style.display = "flex";
         });
-
+        // qui invece se ci esco torna normale
         divEsterno.addEventListener("mouseleave", () => {
             divFilm.style.display = "none";
         });
 
-        
         // solo mobile
         divEsterno.addEventListener("touchstart", (e) => {
             e.preventDefault();
@@ -220,7 +177,6 @@ const stampaSerieTvDelMomento = async () => {
         serieDiv.appendChild(divEsterno); 
     }
 };
-
 
 stampaFilmDelMomento();
 stampaSerieTvDelMomento();

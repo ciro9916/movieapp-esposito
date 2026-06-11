@@ -1,18 +1,24 @@
 const stampaFilmPopolare = async () => {
     const endpoint = '/movie/popular';
+    // chiamata alla funzione per fare chiamate api, funzione inserita nel file api.js
     const data = await fetchFromTMDB(endpoint);
+    // se non ci sono dati non restituire niente
     if (!data) return;
 
     const movies = data;
+    // prende il div film dall'html
     const filmDiv = document.getElementById("film");
 
+    // cicla tutti i film
     for (let i = 0; i < movies.length; i++) {
+        // crea un div esterno in cui metteremo tutto
         const divEsterno = document.createElement("div");
         divEsterno.classList.add("film");
 
         const img = document.createElement("img");
         img.src = BASE_URL_IMG + movies[i].poster_path;
 
+        // crea ora il div per la card
         const divFilm = document.createElement("div");
         divFilm.classList.add("schedaINT");
 
@@ -32,6 +38,7 @@ const stampaFilmPopolare = async () => {
         dataUscita.innerText = "📅 " + movies[i].release_date;
         dataUscita.classList.add("film-data");
         
+        // crea un bottone per portarmi alla pagina dei dettagli
         const btnDettagli = document.createElement("button");
         btnDettagli.innerText = "Dettagli";
         btnDettagli.classList.add("btn-dettagli");
@@ -46,7 +53,7 @@ const stampaFilmPopolare = async () => {
         const righe = movies[i].overview.length < 30 ? 3 : 6;
         overview.style.webkitLineClamp = righe;
 
-
+        // nel div della card mette tutto
         divFilm.appendChild(titolo);
         divFilm.appendChild(voto);
         divFilm.appendChild(lingua);
@@ -56,11 +63,11 @@ const stampaFilmPopolare = async () => {
 
         divEsterno.appendChild(img);
         divEsterno.appendChild(divFilm);
-
+        // qui se sono sull'immagine con il mouse mi mostra la scheda
         divEsterno.addEventListener("mouseenter", () => {
             divFilm.style.display = "flex";
         });
-
+        // qui invece se ci esco torna normale
         divEsterno.addEventListener("mouseleave", () => {
             divFilm.style.display = "none";
         });
