@@ -111,3 +111,6 @@ Tutte le richieste usano il parametro `language=it-IT` per ricevere titoli e des
 **Andrea Esposito**
 Studente ITS 
 [LinkedIn](https://www.linkedin.com/in/andrea-esposito-33b169297/)
+
+
+![Demo CineApp](testApp.gif)
